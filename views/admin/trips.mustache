@@ -1,0 +1,44 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="../../styles.css">
+
+</head>
+<body id="nocolorBody">
+<div>
+<form action='/chat' method ='post'>
+  <input type="submit" name = 'btnChat' id = "btnLink" value ="Chat">
+</form>
+<form action='/logout' method ='post'>
+  <input type="submit" name = 'btnLogout' id = "btnLink" value ="Logout">
+</form>
+
+</div>
+<div class="container">
+<h3>Your Trips</h3>
+
+
+{{#tripList}}
+
+        <p id="tripName">Trip to {{tripName}}</p>
+        <p id="tripDate">{{departureDate}}-{{returnDate}}</p>
+        
+        <p><img src='{{tripImageUrl}}'/></p>
+
+  <form action='/deleteTrip' method='post'>
+    <input type="hidden" name="tripId" value='{{tripId}}' />
+    <input type="submit" id="btnSubmit" value="Delete" />
+  </form>
+
+
+  
+{{/tripList}}
+
+ </div>
+
+
+
+
+</body>
+</html>
